@@ -1,6 +1,6 @@
 # Little Lemon Restaurant API
 
-A restaurant management web application built with Django and Django REST Framework. The project provides a restaurant menu, table booking functionality, user registration, and token-based authentication.
+A restaurant management web application built with Django and Django REST Framework. The project provides restaurant menu management, table booking functionality, user registration, and token-based authentication, with MySQL database integration.
 
 ## Features
 
@@ -9,8 +9,8 @@ A restaurant management web application built with Django and Django REST Framew
 - **User Registration:** Register new user accounts.
 - **Token Authentication:** Obtain authentication tokens through the API.
 - **Data Validation:** Validate reservation dates and time slots.
-- **Django Admin:** Manage application data through Django's administration interface.
-- **Automated Testing:** 11 passing tests covering the main application and API functionality.
+- **Django Admin:** Manage application data through the Django administration interface.
+- **Automated Testing:** 11 tests covering the main application and API functionality.
 
 ## Technology Stack
 
@@ -42,6 +42,8 @@ littlelemon/
 ├── .gitignore
 ├── manage.py
 ├── Pipfile
+├── Pipfile.lock
+├── requirements.txt
 └── README.md
 ```
 
@@ -50,21 +52,14 @@ littlelemon/
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd littlelemon
+git clone https://github.com/hjmk74/little-lemon-restaurant-api.git
+cd little-lemon-restaurant-api
 ```
 
 ### 2. Install dependencies
 
-Install Pipenv if it is not already installed:
-
 ```bash
 pip install pipenv
-```
-
-Install the project dependencies:
-
-```bash
 pipenv install
 ```
 
@@ -94,17 +89,17 @@ http://127.0.0.1:8000/
 
 ## API Endpoints
 
-| Method    | Endpoint             | Description                    |
-| --------- | -------------------- | ------------------------------ |
-| GET       | `/api/menu/`         | Retrieve all menu items        |
-| POST      | `/api/menu/`         | Create a menu item             |
-| GET       | `/api/menu/{id}/`    | Retrieve a menu item by ID     |
-| PUT/PATCH | `/api/menu/{id}/`    | Update a menu item             |
-| DELETE    | `/api/menu/{id}/`    | Delete a menu item             |
-| GET       | `/api/bookings/`     | Retrieve restaurant bookings   |
-| POST      | `/api/bookings/`     | Create a restaurant booking    |
-| POST      | `/api/registration/` | Register a new user            |
-| POST      | `/api/token/`        | Obtain an authentication token |
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/menu/` | Retrieve all menu items |
+| POST | `/api/menu/` | Create a menu item |
+| GET | `/api/menu/{id}/` | Retrieve a menu item by ID |
+| PUT/PATCH | `/api/menu/{id}/` | Update a menu item |
+| DELETE | `/api/menu/{id}/` | Delete a menu item |
+| GET | `/api/bookings/` | Retrieve restaurant bookings |
+| POST | `/api/bookings/` | Create a restaurant booking |
+| POST | `/api/registration/` | Register a new user |
+| POST | `/api/token/` | Obtain an authentication token |
 
 ## Authentication
 
@@ -132,10 +127,8 @@ Run the restaurant application tests using:
 pipenv run python manage.py test restaurant
 ```
 
-The current test suite contains 11 tests.
-
 **Latest test result:** 11 tests passed successfully.
 
 ## Project Purpose
 
-This project was developed as part of the Meta Back-End Developer Professional Certificate capstone work, demonstrating Django application development, REST API implementation, database integration, and automated testing.
+This project was developed as part of the Meta Back-End Developer Professional Certificate capstone work, demonstrating Django application development, REST API implementation, database integration, user registration, and automated testing.
