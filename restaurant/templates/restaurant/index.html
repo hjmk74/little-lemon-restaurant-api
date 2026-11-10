@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Little Lemon - fresh Mediterranean food and warm hospitality.">
+    <title>Little Lemon | Mediterranean Restaurant</title>
+    <link rel="stylesheet" href="{% static 'restaurant/css/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="/" aria-label="Little Lemon home"><span class="brand-mark">L</span><span>Little Lemon</span></a>
+    <nav aria-label="Main navigation"><a href="#menu">Menu</a><a href="#booking">Book a table</a><a href="#about">Our story</a><a href="/api/">API</a></nav>
+</header>
+<main>
+    <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">A little taste of the Mediterranean</p><h1>Fresh flavors.<br><em>Good moments.</em></h1><p>Seasonal ingredients, recipes worth sharing and a table waiting for you.</p><a class="button" href="#booking">Reserve a table</a></div>
+        <div class="hero-art" role="img" aria-label="Mediterranean food with fresh lemons and herbs"><div class="sun"></div><div class="plate"><span>✦</span></div><div class="lemon lemon-one"></div><div class="lemon lemon-two"></div></div>
+    </section>
+    <section class="section menu-section" id="menu">
+        <div class="section-head"><div><p class="eyebrow">Made fresh every day</p><h2>From our kitchen</h2></div><p>A few favorites from the Little Lemon menu.</p></div>
+        <div class="menu-grid">
+        {% for item in menu_items %}
+            <article class="menu-card"><div class="dish-art dish-{{ forloop.counter }}">✦</div><div class="menu-card-body"><div class="dish-title"><h3>{{ item.title }}</h3><strong>${{ item.price }}</strong></div><p>{{ item.description|default:"A fresh favorite from our Mediterranean kitchen." }}</p><small>Available: {{ item.inventory }}</small></div></article>
+        {% empty %}
+            <article class="menu-card"><div class="dish-art dish-1">✦</div><div class="menu-card-body"><div class="dish-title"><h3>Greek Salad</h3><strong>$12.50</strong></div><p>Tomatoes, cucumber, olives, feta and a bright lemon dressing.</p></div></article>
+            <article class="menu-card"><div class="dish-art dish-2">✦</div><div class="menu-card-body"><div class="dish-title"><h3>House Pasta</h3><strong>$15.00</strong></div><p>Fresh pasta tossed with herbs and a slow-cooked tomato sauce.</p></div></article>
+            <article class="menu-card"><div class="dish-art dish-3">✦</div><div class="menu-card-body"><div class="dish-title"><h3>Grilled Chicken</h3><strong>$18.00</strong></div><p>Herb-marinated chicken with seasonal vegetables.</p></div></article>
+        {% endfor %}
+        </div>
+    </section>
+    <section class="booking-section" id="booking"><div><p class="eyebrow">Your table is waiting</p><h2>Make room for<br>something delicious.</h2><p>Send a booking request and our team will take it from there.</p></div>
+        <form id="booking-form" class="booking-form"><label>Your name<input name="first_name" required maxlength="100" placeholder="First name"></label><div class="form-row"><label>Date<input name="reservation_date" type="date" required></label><label>Reservation slot<input name="reservation_slot" type="number" min="10" max="20" value="14" required></label></div><button class="button" type="submit">Request a table</button><p id="booking-message" role="status" aria-live="polite"></p></form>
+    </section>
+    <section class="about-section" id="about"><p class="eyebrow">A neighborhood favorite</p><h2>Good food brings us together.</h2><p>Little Lemon is all about generous plates, bright Mediterranean flavors and making every guest feel at home.</p></section>
+</main>
+<footer><a class="brand" href="/"><span class="brand-mark">L</span><span>Little Lemon</span></a><p>Fresh from our kitchen, shared with you.</p><small>© 2026 Little Lemon</small></footer>
+<script src="{% static 'restaurant/js/booking.js' %}"></script>
+</body>
+</html>

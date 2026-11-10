@@ -1,0 +1,16 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "wrk_littlelemon", "parentId": null, "name": "Little Lemon API", "scope": "collection", "_type": "workspace"
+    },
+    {
+      "_id": "req_menu", "parentId": "wrk_littlelemon", "name": "List menu", "method": "GET", "url": "http://127.0.0.1:8000/api/menu/", "_type": "request"
+    },
+    {
+      "_id": "req_bookings", "parentId": "wrk_littlelemon", "name": "List bookings", "method": "GET", "url": "http://127.0.0.1:8000/api/bookings/", "_type": "request"
+    }
+  ]
+}
